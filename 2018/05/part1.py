@@ -20,14 +20,14 @@ if __name__ == '__main__':
     opp = generate_opposites()
 
     # Input is just a single line
-    with open('input.txt','r') as f:
-        l = f.readline()
+    with open('input.txt', 'r') as f:
+        line = f.readline()
 
     # Remove the end of line junk
-    l = l.rstrip()
+    line = line.rstrip()
 
-    # Convert the string 
-    array = list(l)
+    # Convert the string
+    array = list(line)
 
     # Initialize the loop
     i = 1
@@ -51,4 +51,3 @@ if __name__ == '__main__':
             i = i + 1
 
     print('Puzzle 1: {}'.format(len(array)))
-

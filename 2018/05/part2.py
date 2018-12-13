@@ -21,16 +21,16 @@ def generate_opposites():
     return ret
 
 
-def get_unique_units(l):
+def get_unique_units(line):
     """
     Use set data type in Python to determine the unique units in the
     entire string.  Returned as an array, conveniently.
     """
 
-    return set(l)
+    return set(line)
 
 
-def reduce_units(l):
+def reduce_units(line):
     """
     Original reduction algorithm from part1.  Come across two
     consecutive characters that cancel each other and remove them.
@@ -38,8 +38,8 @@ def reduce_units(l):
     because of the removal.
     """
 
-    # Convert the string 
-    array = list(l)
+    # Convert the string
+    array = list(line)
 
     # Initialize the loop
     i = 1
@@ -70,23 +70,23 @@ if __name__ == '__main__':
     opp = generate_opposites()
 
     # Input is just a single line
-    with open('input.txt','r') as f:
-        l = f.readline()
+    with open('input.txt', 'r') as f:
+        line = f.readline()
 
-    l = l.rstrip()
+    line = line.rstrip()
 
     # Get a unique list of all units (characters) from the input
-    # Lower case because I'm testing the removal of the lc and uc at the 
+    # Lower case because I'm testing the removal of the lc and uc at the
     # same time to avoid duplicates
-    units = get_unique_units(l.lower())
-    
+    units = get_unique_units(line.lower())
+
     min_result = []
-    min_size = len(l)
+    min_size = len(line)
 
     for u in units:
         # Extract out the unit and its annihilator
-        reduced = l.replace(u,'')
-        reduced = reduced.replace(opp[u],'')
+        reduced = line.replace(u, '')
+        reduced = reduced.replace(opp[u], '')
 
         # Run the normal annihilation/reduction routine
         result = reduce_units(reduced)
