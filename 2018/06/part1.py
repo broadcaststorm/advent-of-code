@@ -10,13 +10,9 @@ if __name__ == '__main__':
 
     # Initialize search - set based on cursory examination of input
     min_x = 1000
-    min_xi = -1
     min_y = 1000
-    min_yi = -1
     max_x = 0
-    max_xi = -1
     max_y = 0
-    max_yi = -1
 
     with open('input.txt', 'r') as f:
         for l in f:
