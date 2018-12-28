@@ -4,10 +4,11 @@ Same recursive philosophy, different method of calculation to solve
 the problem.
 """
 
+
 def get_metadata(node):
     """
-    Return the metadata (second argument) and the element index right 
-    after the metadata. 
+    Return the metadata (second argument) and the element index right
+    after the metadata.
     """
 
     # If I've reached a node with no kids, simply return metadata

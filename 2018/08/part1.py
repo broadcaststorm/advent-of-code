@@ -3,19 +3,19 @@
 Recursive fun!
 
 Since each node has a string of recursively embedded nodes within the
-node, you can't get the metadata of the "outside" node until you 
-recursively process each embedded node... which in turn could have 
+node, you can't get the metadata of the "outside" node until you
+recursively process each embedded node... which in turn could have
 embedded nodes on their own.
 
 Must use recursive function to be able to give us a point to the start
 of the metadata region after processing the embedded nodes.
-
 """
+
 
 def get_metadata(node):
     """
-    Return the metadata (second argument) and the element index right 
-    after the metadata. 
+    Return the metadata (second argument) and the element index right
+    after the metadata.
     """
 
     # If I've reached a node with no kids, simply return metadata
