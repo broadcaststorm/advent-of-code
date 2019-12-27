@@ -1,5 +1,25 @@
 #!/usr/bin/env python3
+"""
+My general ideas for this took far too long - to the point I killed
+it.  A different implementation of what I was thinking from uttamo
+here: https://gist.github.com/uttamo/67fb87c06dffbb5c499ab360bb7c3b51
+was a memory efficient way to do this.
 
+My ideas:
+- They orbit so the moons return to origin at zero velocity independently
+  and the LCM of those 4 intervals will do it.
+  - Worked great for 2 examples, periods TOO LONG for actual input
+- From physics, the 3 axis are independent so maybe the axis repeat
+  more frequently than the combination of the three for a given body.
+  - No appreciable difference for the 2 examples, still too long for
+    puzzle input
+  - Noticed, not surprisingly, the steps intervals seemed to get longer
+    and longer.  Memory consumption exploded (again, not surprisingly)
+- uttamo example broke performance issue. Not really sure why unless
+  the underlying representation in CPython is hash like for sets as
+  opposed to lists which do linear searches???  Guessing.
+
+"""
 
 import numpy
 from part1 import Orbit, apply_time_step, report_kinematics
