@@ -1,0 +1,19 @@
+abc
+
+a
+b
+c
+
+ab
+ac
+
+a
+a
+a
+a
+
+b
+
+# VERY IMPORTANT. Must have extra line above at end of input provided by
+# challenge so last group entry matches the regex. No extra lines below
+# so this comment block doesn't match.
