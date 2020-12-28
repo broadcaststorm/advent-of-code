@@ -16,7 +16,7 @@ def read_input_data(input_file):
 
         for y, row in enumerate(raw):
             for x, col in enumerate(row):
-                grid[(x, y, 0)] = col
+                grid[(x, y, 0, 0)] = col
 
     return max_cols, max_rows, grid
 
@@ -36,16 +36,17 @@ def apply_rules(grid, center):
     for x in [center[0]-1, center[0], center[0]+1]:
         for y in [center[1]-1, center[1], center[1]+1]:
             for z in [center[2]-1, center[2], center[2]+1]:
-                current = (x, y, z)
-                if current == center:
-                    continue
+                for w in [center[3]-1, center[3], center[3]+1]:
+                    current = (x, y, z, w)
+                    if current == center:
+                        continue
 
-                if current not in grid:
-                    continue
+                    if current not in grid:
+                        continue
 
-                if grid[current] == '#':
-                    active = active + 1
-
+                    if grid[current] == '#':
+                        active = active + 1
+                
     # Apply the rules
     if grid[center] == '.':
         if active == 3:
@@ -73,6 +74,8 @@ def cycle(grid, x_max, y_max, rounds=6):
     y_min = 0
     z_min = 0
     z_max = 1
+    w_min = 0
+    w_max = 1
 
     # Make a copy to be updated on each iteration
     updated = copy.deepcopy(grid)
@@ -84,27 +87,30 @@ def cycle(grid, x_max, y_max, rounds=6):
         x_min -= 1
         y_min -= 1
         z_min -= 1
+        w_min -= 1
         x_max += 1
         y_max += 1
         z_max += 1
+        w_max += 1
 
         # Process the grid
         for x in range(x_min, x_max):
             for y in range(y_min, y_max):
                 for z in range(z_min, z_max):
-                    current = (x, y, z)
+                    for w in range(w_min, w_max):
+                        current = (x, y, z, w)
 
-                    # The fringes may be expanded and not yet defined
-                    if current not in grid:
-                        grid[current] = '.'
+                        # The fringes may be expanded and not yet defined
+                        if current not in grid:
+                            grid[current] = '.'
 
-                    # Apply the rules to determine active
-                    updated[current] = apply_rules(grid, current)
+                        # Apply the rules to determine active
+                        updated[current] = apply_rules(grid, current)
 
         # Save the updates
         grid = copy.deepcopy(updated)
 
-    return (x_min, y_min, z_min), (x_max, y_max, z_max), grid
+    return (x_min, y_min, z_min, w_min), (x_max, y_max, z_max, w_max), grid
 
 
 def count_active(min_grid, max_grid, grid):
@@ -113,17 +119,18 @@ def count_active(min_grid, max_grid, grid):
     for x in range(min_grid[0], max_grid[0]):
         for y in range(min_grid[1], max_grid[1]):
             for z in range(min_grid[2], max_grid[2]):
-                p = (x, y, z)
-                if p in grid:
-                    if grid[p] == '#':
-                        num_active += 1
-
+                for w in range(min_grid[3], max_grid[3]):
+                    p = (x, y, z, w)
+                    if p in grid:
+                        if grid[p] == '#':
+                            num_active += 1
+    
     return num_active
 
 
 if __name__ == '__main__':
 
-    print('Part 1')
+    print('Part 2')
     sample_x_max, sample_y_max, sample_grid = read_input_data('sample.txt')
     v_min, v_max, final_grid = cycle(sample_grid, sample_x_max, sample_y_max)
     sample_active = count_active(v_min, v_max, final_grid)
