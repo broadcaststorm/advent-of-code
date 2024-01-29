@@ -1,2 +1,5 @@
 wheel
+flake8
+pytest
+pytest-cov
 typer[all]
