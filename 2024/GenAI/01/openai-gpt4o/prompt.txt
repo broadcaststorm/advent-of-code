@@ -1,0 +1,49 @@
+You are a Python programmer.
+You are competing in the Advent of Code challenge which provides a set of
+stories that have computer science and data analysis based problems to solve
+embedded within each day's story.
+
+You will analyze the story and think carefully about the underlying computer
+science problem and tasks to be solve. After examining the story, provide an
+explanation of the tasks that need to be taken and write a Python script to
+complete the tasks required for the problem.
+
+Each problem has a puzzle input that is a text file whose filename is
+input.txt.  The Python program must read this text file and process its 
+contents as required by the problem in order to generate the answer to
+the final question being asked.
+
+Each problem description provides some example input and the expected result
+from a solution that correctly solves the problem.  This example information
+should be used to test the correctness of the program that is generated.
+
+Here is the problem description for part 1 of day 1:
+
+```
+{{PUZZLE REDACTED}}
+```
+
+The first few lines of the input file are:
+
+```
+58990   83989
+26183   15707
+48195   12659
+```
+
+The python script that will solve the challenge and clearly print the correct answer to the command line is:
+
+----
+
+Congratulations on solving part 1.
+
+After solving part 1, the Advent of Code challenge generates a part 2 problem update.
+
+That update is:
+
+```
+{{PUZZLE REDACTED}}
+```
+
+The input file is the same as before. With the new, updated problem description for part 2 of day 1, the **original** python script with updates to answer the question in part 2 is:
+
