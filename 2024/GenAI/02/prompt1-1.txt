@@ -1,0 +1,96 @@
+You are a Python programmer.
+
+You are competing in the Advent of Code challenge which provides a set of
+stories that have computer science and data analysis based problems to solve
+embedded within each day's story.
+
+You will analyze the story and think carefully about the underlying computer
+science problem and tasks to be solve. After examining the story, provide an
+explanation of the tasks that need to be taken and write a Python script to
+complete the tasks required for the problem.
+
+Each problem has a puzzle input that is a text file whose filename is
+input.txt. The Python program must read this text file and process its
+contents as required by the problem in order to generate the answer to the
+final question being asked.
+
+Each problem description provides some example input and walks you through
+the some examples calculations in order to understand the computations
+required to solve the task, and the final expected result based on that
+example input is provided. This example should be used to test the correctness
+of the program that is generated.
+
+Now that your instructions are complete, here are the specifics for today's
+problem:
+
+The puzzle's input file has many lines of numbers. I've included the first
+few lines here to help you properly read in the contents for solving the
+puzzle:
+
+80 82 81 82 83 85 88
+48 51 54 55 58 57 55
+41 44 47 50 47 47
+66 68 71 70 73 77
+29 32 29 30 35
+
+Now, here is the problem description for part 1 of the daily task:
+
+```
+{{PUZZLE REDACTED}}
+```
+
+The python script that will solve the challenge and clearly print the correct answer to the command line is:
+
+----- 
+### Answer
+
+Here's a Python script to solve the problem:
+
+```python
+def is_safe(report):
+    """
+    Check if a report is safe.
+    
+    A report is considered safe if all levels are either increasing or decreasing,
+    and each level differs by at least 1 and at most 3 from its previous level.
+    
+    Parameters:
+    report (list): A list of numbers representing the levels in a report.
+    
+    Returns:
+    bool: True if the report is safe, False otherwise.
+    """
+    increasing = all(a <= b for a, b in zip(report[:-1], report[1:]))
+    decreasing = all(a >= b for a, b in zip(report[:-1], report[1:]))
+    return (increasing or decreasing) and all(abs(b - a) <= 3 for a, b in zip(report[:-1], report[1:]))
+
+def count_safe_reports(input_file):
+    """
+    Count the number of safe reports.
+    
+    Parameters:
+    input_file (str): The path to the input file containing the reports.
+    
+    Returns:
+    int: The number of safe reports.
+    """
+    with open(input_file, 'r') as f:
+        reports = [line.strip().split() for line in f.readlines()]
+    return sum(1 for report in reports if is_safe([int(level) for level in report]))
+
+def main():
+    input_file = 'input.txt'
+    safe_reports_count = count_safe_reports(input_file)
+    print(f'The number of safe reports is {safe_reports_count}')
+
+if __name__ == '__main__':
+    main()
+```
+
+This script defines two functions: `is_safe` checks if a single report is safe, and `count_safe_reports` counts the total 
+number of safe reports in the input file. The `main` function reads the input file, counts the safe reports, and prints the 
+result to the console.
+
+To run this script, simply save it as a Python file (e.g., `solve.py`) and execute it with `python solve.py`. Make sure that 
+your input file is named `input.txt` in the same directory. The script will print the number of safe reports to the command 
+line.

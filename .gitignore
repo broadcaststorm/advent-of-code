@@ -1,6 +1,11 @@
 ## Apple
 .DS_Store
 
+## Advent of Code 2024
+puzzle-input.txt
+puzzle-part1.txt
+puzzle-part2.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

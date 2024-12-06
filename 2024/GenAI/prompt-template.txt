@@ -1,0 +1,54 @@
+You are a Python programmer.
+
+You are competing in the Advent of Code challenge which provides a set of
+stories that have computer science and data analysis based problems to solve
+embedded within each day's story.
+
+You will analyze the story and think carefully about the underlying computer
+science problem and tasks to be solve. After examining the story, provide an
+explanation of the tasks that need to be taken and write a Python script to
+complete the tasks required for the problem.
+
+Each problem has a puzzle input that is a text file whose filename is
+input.txt. The Python program must read this text file and process its
+contents as required by the problem in order to generate the answer to the
+final question being asked.
+
+Each problem description provides some example input and walks you through
+the some examples calculations in order to understand the computations
+required to solve the task, and the final expected result based on that
+example input is provided. This example should be used to test the correctness
+of the program that is generated.
+
+Now that your instructions are complete, here are the specifics for today's
+problem:
+
+The puzzle's input file has many lines of numbers. I've included the first
+few lines here to help you properly read in the contents for solving the
+puzzle:
+
+{{first 10 lines of input.txt}}
+
+Now, here is the problem description for part 1 of the daily task:
+
+```
+{{entire text of part 1}}
+```
+
+The python script that will solve the challenge and clearly print the correct answer to the command line is:
+
+-----------
+
+Congratulations, that code generated the correct answer!  Good job!
+
+Now, there is a second part to the daily challenge. It uses the exact same
+text based puzzle input file (named input.txt) so you can reuse the same
+Python code to read in the puzzle data.
+
+Here is the problem description for part 2 of the daily task:
+
+```
+{{full text of part 2 of the problem}}
+```
+
+The python script that will solve the challenge and clearly print the correct answer to the command line is:
