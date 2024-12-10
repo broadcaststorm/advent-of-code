@@ -38,3 +38,29 @@ $ ollama show llama3.1
 ```
 
 Why? Because I have a 24GB MacBook Air M2 and it's reasonably fast at inferencing GenAI token responses.
+
+### Llama 3.3 70B
+
+"Llama 3.3 is a text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B–and to Llama 3.2 90B when used for text-only applications."
+
+[Model Card](https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/MODEL_CARD.md) in GitHub.
+
+```bash
+$ ollama show llama3.3
+  Model
+    architecture        llama     
+    parameters          70.6B     
+    context length      131072    
+    embedding length    8192      
+    quantization        Q4_K_M    
+
+  Parameters
+    stop    "<|start_header_id|>"    
+    stop    "<|end_header_id|>"      
+    stop    "<|eot_id|>"             
+
+  License
+    LLAMA 3.3 COMMUNITY LICENSE AGREEMENT               
+    Llama 3.3 Version Release Date: December 6, 2024    
+
+```
